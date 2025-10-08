@@ -27,10 +27,10 @@ public class TorpedoStore {
       }
     }
   }
-  private Random generator = new Random();
+  private Random generator = new Random(); // its not necessary to create local random generator
   public boolean fire(int numberOfTorpedos){
     if(numberOfTorpedos < 1 || numberOfTorpedos > this.torpedoCount){
-      throw new IllegalArgumentException("numberOfTorpedos");
+      throw new IllegalArgumentException("numberOfTorpedos"); // throws exception if it wants to shoot no torpedos, or if it wants to shoot too many
     }
 
     boolean success = false;
@@ -41,7 +41,7 @@ public class TorpedoStore {
 
     if (r >= FAILURE_RATE) {
       // successful firing
-      this.torpedoCount -= numberOfTorpedos;
+      this.torpedoCount -= numberOfTorpedos; 
       success = true;
     } else {
       // simulated failure
